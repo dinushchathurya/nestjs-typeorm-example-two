@@ -7,9 +7,15 @@ const config: MysqlConnectionOptions = {
     username: "root",
     password: "",
     database: "nestjs_typeorm_two",
-    synchronize: false,
+    synchronize: true,
     logging: true,
-    entities: ["dist/**/*.entity{.ts,.js}"]
+    entities: ['dist/src/**/*.entity.js'],
+    migrations: [
+        'dist/src/migrations/*.js'
+    ],
+    cli: {
+        migrationsDir: 'src/migrations'
+    }
 }
 
 export default config;
